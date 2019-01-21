@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
 // import Error from './Components/error'
 
-class App extends Component {
+export default class App extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
@@ -26,16 +26,16 @@ class App extends Component {
   })
 }
 
-  addFood = () => {
-    const NameFood = this.state.foods.map(food => food.name)
-    return NameFood[1]
-  }
+  // addFood = () => {
+  //   const NameFood = this.state.foods.map(food => food.name)
+  //   return NameFood[1]
+  // }
 
   render() {
     return (
       <View>
         {/* this.state.error ? <Error>Oh No!</Error> : <text addFood /> */}
-        <text>addFood</text>
+        <Text>hello there</Text>
         </View> 
     )
   }
