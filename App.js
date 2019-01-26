@@ -36,10 +36,8 @@ export default class App extends React.Component{
       <View>
         {/* this.state.error ? <Error>Oh No!</Error> : <text addFood /> */}
         <Text>hello there</Text>
+        <Text>{this.state.foods[0]}</Text>
         </View> 
     )
   }
 }
-
-// // skip this line if using Create React Native App
-// AppRegistry.registerComponent('AwesomeProject', () => LotsOfGreetings);
