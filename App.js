@@ -8,10 +8,7 @@ import RNPickerSelect from 'react-native-picker-select';
     super(props)
     this.state = {
       isLoading: true,
-      foods: [],
-      error: null,
-      items : ['food', 'food2']
-
+      error: null
     }
   }
 
@@ -20,25 +17,24 @@ import RNPickerSelect from 'react-native-picker-select';
       .then(data => data.json())
       .then(myJson => {
           this.setState({
-            foods: myJson
+            items: myJson.report.foods,
+            foodAndNutrients: myJson.report.foods.map(item => (
+              {
+              name: item.name,
+              nutrients: item.nutrients
+            })
+            )
           })
-          console.log(myJson.report.foods.map(item => item.nutrients))
 
     })
 }
-
-// findFood = () => {
-//   const mapFoods = this.state.foods.report.map(report =>report.food)
-//   console.log(mapFoods)
-//   return mapFoods
-// }
 
   render() {
     return (
       <View>
         <Text style={styles.red}>hello there</Text>
         <Text>Choose something!</Text>
-        <RNPickerSelect
+        {/* <RNPickerSelect
                     placeholder={{
                         label: 'Select a color...',
                         value: null,
@@ -50,7 +46,7 @@ import RNPickerSelect from 'react-native-picker-select';
                             favColor: value,
                         });
                     }}
-        />
+        /> */}
         </View> 
     )
   }
