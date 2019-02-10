@@ -22,8 +22,8 @@ import RNPickerSelect from 'react-native-picker-select';
           this.setState({
             foods: myJson
           })
-          console.log(myJson.report.foods[0])
-          
+          console.log(myJson.report.foods.map(item => item.nutrients))
+
     })
 }
 
