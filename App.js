@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, FlatList } from 'react-native';
+import { AppRegistry, Text, View, FlatList, StyleSheet } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 // import Error from './Components/error'
 
  class App extends React.Component{
@@ -8,7 +9,8 @@ import { AppRegistry, Text, View, FlatList } from 'react-native';
     this.state = {
       isLoading: true,
       foods: [],
-      error: null
+      error: null,
+      items : ['food', 'food2']
 
     }
   }
@@ -20,23 +22,49 @@ import { AppRegistry, Text, View, FlatList } from 'react-native';
           this.setState({
             foods: myJson
           })
+          console.log(myJson.report.foods[0])
+          
     })
 }
 
-findFood = () => {
-  const mapFoods = this.state.foods.report.map(report =>report.food)
-  console.log(mapFoods)
-  return mapFoods
-}
+// findFood = () => {
+//   const mapFoods = this.state.foods.report.map(report =>report.food)
+//   console.log(mapFoods)
+//   return mapFoods
+// }
 
   render() {
     return (
       <View>
-        <Text>hello there</Text>
-        <Text>{this.findFood}</Text>
+        <Text style={styles.red}>hello there</Text>
+        <Text>Choose something!</Text>
+        <RNPickerSelect
+                    placeholder={{
+                        label: 'Select a color...',
+                        value: null,
+                        color: '#9EA0A4',
+                    }}
+                    items={this.state.items}
+                    onValueChange={(value) => {
+                        this.setState({
+                            favColor: value,
+                        });
+                    }}
+        />
         </View> 
     )
   }
 }
-
 export default App
+
+styles = StyleSheet.create({
+  bigBlue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
+  },
+});
+
