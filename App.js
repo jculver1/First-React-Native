@@ -25,8 +25,27 @@ import RNPickerSelect from 'react-native-picker-select';
             })
             )
           })
-
+              this.findNutrient()
+          // console.log(this.state.nutrientList)  
     })
+}
+
+findNutrient = () => {
+  const findNutrients = this.state.foodAndNutrients.map(item => item.nutrients)
+  const findAgain = findNutrients.map(item => item)
+  console.log(findAgain)
+  const nutrients = findAgain.reduce((total, amount) => {
+    amount.nutrient.forEach(nutrient=> {
+      if (total.indexOf(nutrient) === -1){
+        total.push(nutrient)
+      }
+    })
+    return total
+  },[]
+  )
+  this.setState({
+    nutrientList : nutrients 
+  })
 }
 
   render() {
