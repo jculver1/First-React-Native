@@ -13,31 +13,19 @@ import RNPickerSelect from 'react-native-picker-select';
   }
 
   componentDidMount(){ 
-    fetch('http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=g03EsNMIdLVGVFxer9G0rkguZEPyUf2dcDyxlKH6&nutrients=205&nutrients=204&nutrients=208&nutrients=269')
+    fetch('https://api.nal.usda.gov/ndb/reports/?ndbno=01009&type=f&format=json&api_key=g03EsNMIdLVGVFxer9G0rkguZEPyUf2dcDyxlKH6&nutrients=205&nutrients=204&nutrients=208&nutrients=269')
       .then(data => data.json())
       .then(myJson => {
           this.setState({
-            items: myJson.report.foods,
-            foodAndNutrients: myJson.report.foods.map(item => (
-              {
-              name: item.name,
-              nutrients: item.nutrients
-            })
-            )
-          })
-              this.findNutrient()
-          // console.log(this.state.nutrientList)  
+            items: myJson.report.food.nutrients.map(nutrient => nutrient.name)
     })
+    // console.log(myJson.report.food.nutrients.map(nutrient => nutrient.name))
+    console.log(this.state.items)
+  }
+  )
+  // console.log(this.state.items)
 }
 
-findNutrient = () => {
-  const findNutrients = this.state.foodAndNutrients.map(item => item.nutrients)
-  const findAllNutrients = findNutrients.map(subarray => subarray.map(item => item.nutrient))
-  const flatenArray = findAllNutrients.flat()  
-  const uniqueNutrient = [...new Set(flatenArray)]; 
-  
-  console.log(uniqueNutrient)
-}
 
   render() {
     return (
