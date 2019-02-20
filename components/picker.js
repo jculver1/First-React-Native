@@ -12,12 +12,4 @@ const FirstPicker = (props) => {
     </Picker>
     )}
 
-// const styles = StyleSheet.create({
-//    text: {
-//       fontSize: 30,
-//       alignSelf: 'center',
-//       color: 'red'
-//    }
-// })
-
 export default FirstPicker

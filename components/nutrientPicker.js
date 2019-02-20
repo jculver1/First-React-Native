@@ -7,7 +7,7 @@ const NutrientPicker= (props) => {
         onValueChange={(event) => props.pickNutrient(event)}>{
         props.nutrientData.map( (v, i)=>{
             if(v.group === props.typeChosen){
-        return <Picker.Item key={i} label={v} value={v} />
+        return <Picker.Item key={i} label={v.name} value={v.name} />
             }
         })
         }
