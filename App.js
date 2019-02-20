@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, View, FlatList, StyleSheet } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 // import Error from './Components/error'
-import PickerExample from './components/picker'
+import FirstPicker from './components/picker'
+import NutrientPicker from './components/nutrientPicker'
 
  class App extends React.Component{
   constructor(props) {
@@ -13,7 +14,8 @@ import PickerExample from './components/picker'
       item: '',
       data: [],
       nutrientType: [],
-      chosen: ''
+      typeChosen: '',
+      nutrient: ''
     }
   }i
 
@@ -22,7 +24,7 @@ import PickerExample from './components/picker'
       .then(data => data.json())
       .then(myJson => {
           this.setState({
-            data: myJson.report.food,
+            data: myJson.report.food.nutrients,
             nutrientType: [...new Set(myJson.report.food.nutrients.map(nutrient => nutrient.group))]
             // nutrientName: myJson.report.food.nutrients.map(nutrient => nutrient.name)
     })
@@ -32,9 +34,16 @@ import PickerExample from './components/picker'
 
 pickType = (event) => {
   this.setState({
-    chosen: event 
+    typeChosen: event 
   })
-  console.log(this.state.chosen)
+  console.log(this.state.typeChosen)
+}
+
+pickNutrient = (event) => {
+  this.setState({
+    nutrient: event
+  })
+  console.log(this.state.nutrient)
 }
 
   render() {
@@ -42,7 +51,8 @@ pickType = (event) => {
       <View>
         <Text style={styles.red}>hello there</Text>
         <Text>Choose something!</Text>
-        <PickerExample nutrientType={this.state.nutrientType} item={this.state.item} pickType={this.pickType}/>
+        <FirstPicker nutrientType={this.state.nutrientType} item={this.state.item} pickType={this.pickType}/>
+        <NutrientPicker pickNutrient={this.pickNutrient} typeChosen={this.state.typeChosen} nutrientData={this.state.data}/>
         </View> 
     )
   }

@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, Text, Picker, StyleSheet } from 'react-native'
 
-const PickerExample = (props) => {
+const FirstPicker = (props) => {
     return(
     <Picker
-        selectedValue={props.item}
         onValueChange={(event) => props.pickType(event)}>{
         props.nutrientType.map( (v, i)=>{
         return <Picker.Item key={i} label={v} value={v} />
@@ -21,4 +20,4 @@ const PickerExample = (props) => {
 //    }
 // })
 
-export default PickerExample
+export default FirstPicker
