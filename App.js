@@ -23,7 +23,7 @@ import PickerExample from './components/picker'
       .then(myJson => {
           this.setState({
             data: myJson.report.food,
-            nutrientType: myJson.report.food.nutrients.map(nutrient => nutrient.group),
+            nutrientType: [...new Set(myJson.report.food.nutrients.map(nutrient => nutrient.group))]
             // nutrientName: myJson.report.food.nutrients.map(nutrient => nutrient.name)
     })
   }
