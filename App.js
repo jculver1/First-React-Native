@@ -12,7 +12,8 @@ import PickerExample from './components/picker'
       error: null,
       item: '',
       data: [],
-      nutrientType: []
+      nutrientType: [],
+      chosen: ''
     }
   }i
 
@@ -29,8 +30,11 @@ import PickerExample from './components/picker'
   )
 }
 
-pickType = () => {
-  console.log('hello')
+pickType = (event) => {
+  this.setState({
+    chosen: event 
+  })
+  console.log(this.state.chosen)
 }
 
   render() {

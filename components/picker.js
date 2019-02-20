@@ -5,7 +5,7 @@ const PickerExample = (props) => {
     return(
     <Picker
         selectedValue={props.item}
-        onValueChange={() => props.pickType()}>{
+        onValueChange={(event) => props.pickType(event)}>{
         props.nutrientType.map( (v, i)=>{
         return <Picker.Item key={i} label={v} value={v} />
         })
