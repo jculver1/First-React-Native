@@ -4,7 +4,7 @@ import RNPickerSelect from 'react-native-picker-select';
 // import Error from './Components/error'
 import FirstPicker from './components/picker'
 import NutrientPicker from './components/nutrientPicker'
-import BigBlue from './components/styles'
+import MyStyles from './components/styles'
 
  class App extends React.Component{
   constructor(props) {
@@ -50,7 +50,7 @@ pickNutrient = (event) => {
   render() {
     return (
       <View>
-        <Text style={BigBlue.primary}>hello there</Text>
+        <Text style={MyStyles.container}>What the Health?</Text>
         <Text>Choose something!</Text>
         <FirstPicker nutrientType={this.state.nutrientType} item={this.state.item} pickType={this.pickType}/>
         <NutrientPicker pickNutrient={this.pickNutrient} typeChosen={this.state.typeChosen} nutrientData={this.state.data}/>

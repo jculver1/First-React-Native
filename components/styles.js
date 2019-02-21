@@ -12,15 +12,22 @@ import { StyleSheet } from 'react-native'
 //     },
 //   });
 
-  const BigBlue = StyleSheet.create({
+  const MyStyles = StyleSheet.create({
       primary: {
         color: 'blue',
         fontWeight: 'bold',
         fontSize: 30,
-      }
+      },
+      container: {
+        borderRadius: 4,
+        borderWidth: 0.5,
+        borderColor: '#d6d7da',
+      },
   })
 
-  export default BigBlue
+ 
+
+  export default MyStyles
   
 
   
