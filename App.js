@@ -50,11 +50,18 @@ pickNutrient = (event) => {
   render() {
     return (
       <View>
-        <Text style={MyStyles.container}>What the Health?</Text>
-        <Text>Choose something!</Text>
-        <FirstPicker nutrientType={this.state.nutrientType} item={this.state.item} pickType={this.pickType}/>
-        <NutrientPicker pickNutrient={this.pickNutrient} typeChosen={this.state.typeChosen} nutrientData={this.state.data}/>
-        </View> 
+        <View style={MyStyles.item}>
+          <Text style={MyStyles.textStyle}>What the Health?</Text>
+        </View>
+        <View style={MyStyles.item} >
+          <Text style={MyStyles.textStyle}>Choose something!</Text>
+        </View>
+        <View>
+        <FirstPicker style={MyStyles.item} nutrientType={this.state.nutrientType} item={this.state.item} pickType={this.pickType}/>
+        </View>
+        <NutrientPicker style={MyStyles.item} pickNutrient={this.pickNutrient} typeChosen={this.state.typeChosen} nutrientData={this.state.data}/>
+      
+      </View> 
     )
   }
 }

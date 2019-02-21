@@ -18,11 +18,19 @@ import { StyleSheet } from 'react-native'
         fontWeight: 'bold',
         fontSize: 30,
       },
-      container: {
-        borderRadius: 4,
-        borderWidth: 0.5,
-        borderColor: '#d6d7da',
+    //   container: {
+    //       display: 'flex',
+    //   },
+      item : {
+        width:40,
+        height:40,
+        justifyContent: 'center',
+        alignItems:'center', 
+        backgroundColor:'#b642f4'
       },
+      textStyle:{
+        textAlign:'center'
+      }
   })
 
  
