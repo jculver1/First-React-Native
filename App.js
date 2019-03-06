@@ -18,7 +18,7 @@ import MyStyles from './components/styles'
       typeChosen: '',
       nutrient: ''
     }
-  }i
+  }
 
   componentDidMount(){ 
     fetch('https://api.nal.usda.gov/ndb/reports/?ndbno=01009&type=f&format=json&api_key=g03EsNMIdLVGVFxer9G0rkguZEPyUf2dcDyxlKH6&nutrients=205&nutrients=204&nutrients=208&nutrients=269')
@@ -41,10 +41,16 @@ pickType = (event) => {
 }
 
 pickNutrient = (event) => {
+  const findFood = this.state.data.report.food.nutrients.map(item => {
+    if(item.name === event){
+      return 
+    }
+  })
   this.setState({
     nutrient: event
   })
-  console.log(this.state.nutrient)
+
+  console.log(findFood)
 }
 
   render() {
@@ -60,7 +66,6 @@ pickNutrient = (event) => {
         <FirstPicker style={MyStyles.item} nutrientType={this.state.nutrientType} item={this.state.item} pickType={this.pickType}/>
         </View>
         <NutrientPicker style={MyStyles.item} pickNutrient={this.pickNutrient} typeChosen={this.state.typeChosen} nutrientData={this.state.data}/>
-      
       </View> 
     )
   }
